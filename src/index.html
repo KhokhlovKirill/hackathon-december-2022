@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" type="module"></script>
+    <title>Остров</title>
+</head>
+<body>
+<div class="coordinates-settings" id="coordinatesSettings">
+    <div class="coordinates-settings-block">
+        <h1 class="heading">Коордианты клада:</h1>
+        <div class="input-block">
+            <label for="xCoordinates" class="input-label">X:</label>
+            <input class="input-input" type="number" id="xCoordinates" placeholder="X" value="0">
+        </div>
+        <div class="input-block">
+            <label class="input-label" for="yCoordinates">Y:</label>
+            <input class="input-input" type="number" id="yCoordinates" placeholder="Y" value="0">
+        </div>
+        <input class="input-submit" id="submitTreasureButton" type="submit" value="Далее">
+    </div>
+</div>
+<div class="commands" id="commandsBlock" style="display: none">
+    <div class="commands-info-block">
+        <div class="commands-info-treasure">
+            <h2 class="commands-info-heading">Клад:</h2>
+            <p class="commands-info-coordinates" id="treasureX">X: </p>
+            <p class="commands-info-coordinates" id="treasureY">Y: </p>
+        </div>
+        <div class="commands-info-character">
+            <h2 class="commands-info-heading">Персонаж:</h2>
+            <p class="commands-info-coordinates" id="characterX">X: </p>
+            <p class="commands-info-coordinates" id="characterY">Y: </p>
+            <p class="commands-info-direction" id="characterDirection">Направление: </p>
+        </div>
+    </div>
+    <h1 class="heading">Укажите команду, чтобы дойти до клада:</h1>
+    <div class="commands-buttons-block">
+        <input class="commands-button" id="straightButton" type="button" value="Прямо">
+        <input class="commands-button" id="rightButton" type="button" value="Направо">
+        <input class="commands-button" id="leftButton" type="button" value="Налево">
+        <input class="commands-button" id="turnAroundButton" type="button" value="Разворот ">
+        <input class="commands-button" id="stopButton" type="button" value="Стоп">
+    </div>
+</div>
+</body>
+</html>
