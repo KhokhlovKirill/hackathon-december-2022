@@ -43,6 +43,12 @@ export class Treasure {
             movesList: []
         }
 
+        if (this.position.x == 0 && this.position.y == 0) {
+            returnObject.moveCount = 0;
+            returnObject.movesList = [];
+            return returnObject;
+        }
+
         while (true) {
             let priorityCell = this.#findPriorityCellToMove(virtualCharacter.position.x, virtualCharacter.position.y, this.position.x, this.position.y);
 
