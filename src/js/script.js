@@ -25,6 +25,12 @@ let controlButtons = {
     turnAround: document.querySelector('#turnAroundButton'),
     stop: document.querySelector('#stopButton')
 };
+let totalBlock = document.querySelector('#totalBlock');
+let countMoves = document.querySelector('#countMoves');
+let minimalMoveCount = document.querySelector('#minimalMoveCount');
+let movesList = document.querySelector('#movesList');
+let startAgainButton = document.querySelector('#startAgain');
+
 
 submitTreasureButton.addEventListener('click', setTreasure);
 
@@ -53,6 +59,10 @@ controlButtons.stop.addEventListener('click', () => {
     checkTreasure();
 });
 
+startAgainButton.addEventListener('click', () => {
+    document.location.reload();
+});
+
 function main() {
     displayCoordinates();
 }
@@ -67,7 +77,6 @@ function setTreasure() {
         displayCoordinates();
         return true;
     } else return false;
-
 }
 
 function displayCoordinates() {
@@ -105,7 +114,17 @@ function checkTreasure() {
 
 function treasureFound() {
     commandsBlock.style.display = 'none';
-    alert('Вы нашли клад!');
+    totalBlock.style.display = 'flex';
+    let shortestWay = treasure.getShortestWay();
+
+    countMoves.innerHTML = `Вы нашли клад! Кол-во шагов: ${character.countMoves}`;
+    minimalMoveCount.innerHTML = `Минимально возможное кол-во шагов: ${shortestWay.moveCount}`;
+    for (let action of shortestWay.movesList) {
+        let listItem = document.createElement('li');
+        movesList.appendChild(listItem);
+        listItem.classList.add('total-min-way-list-item');
+        listItem.innerHTML = action;
+    }
 }
 
 main();

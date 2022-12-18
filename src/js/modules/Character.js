@@ -8,6 +8,7 @@ export class Character {
      * @param direction Направление движения на старте
      */
     constructor(x = 0, y = 0, direction = 0) {
+        this.countMoves = 0;
         this.position = {
             x: x,
             y: y,
@@ -25,18 +26,19 @@ export class Character {
     moveStraight() {
         switch (this.position.direction) {
             case 0:
-                this.position.x++;
-                break;
-            case 1:
                 this.position.y++;
                 break;
-            case 2:
-                this.position.x--;
+            case 1:
+                this.position.x++;
                 break;
-            case 3:
+            case 2:
                 this.position.y--;
                 break;
+            case 3:
+                this.position.x--;
+                break;
         }
+        this.countMoves++;
         return this.position;
     }
 
